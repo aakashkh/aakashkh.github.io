@@ -1,0 +1,389 @@
+{{ define "head" }}
+<meta name="description" content="Books, podcasts, and blogs that inspire continuous learning">
+<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/books.css" media="all">
+<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/bootstrap-5/css/bootstrap.min.css">
+<script defer src="{{ .Site.Params.staticPath }}/fontawesome-6/all-6.4.2.js"></script>
+<script src="{{ .Site.Params.staticPath }}/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+{{ end }}
+
+{{ define "title" }}
+{{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<script>document.body.setAttribute('data-page', 'books');</script>
+<section id="books" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center mb-5">{{ .Title }}</h1>
+                
+                <!-- Navigation Tabs -->
+                <div class="nav-tabs-container mb-5">
+                    <ul class="nav nav-tabs justify-content-center" id="learningTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#books-section">
+                                <i class="fas fa-book"></i> Books
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#podcasts-section">
+                                <i class="fas fa-podcast"></i> Podcasts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#blogs-section">
+                                <i class="fas fa-rss"></i> Blogs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Books Section -->
+                    <div class="tab-pane fade show active" id="books-section">
+                        
+                        <!-- Filter Controls -->
+                        <div class="filter-controls mb-4">
+                            <!-- Year Filters -->
+                            <div class="filter-section mb-3">
+                                <h4 class="filter-title">Filter by Year</h4>
+                                <div class="filter-buttons">
+                                    <button class="filter-btn active" data-filter="all" data-type="year">All Years</button>
+                                    <button class="filter-btn" data-filter="2024" data-type="year">2024</button>
+                                    <button class="filter-btn" data-filter="2023" data-type="year">2023</button>
+                                    <button class="filter-btn" data-filter="2022" data-type="year">2022</button>
+                                    <button class="filter-btn" data-filter="2021" data-type="year">2021</button>
+                                    <button class="filter-btn" data-filter="2020" data-type="year">2020</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Category Filters -->
+                            <div class="filter-section">
+                                <h4 class="filter-title">Filter by Category</h4>
+                                <div class="filter-buttons">
+                                    <button class="filter-btn active" data-filter="all" data-type="category">All Categories</button>
+                                    <button class="filter-btn" data-filter="business" data-type="category">
+                                        <i class="fas fa-briefcase"></i> Business
+                                    </button>
+                                    <button class="filter-btn" data-filter="personal" data-type="category">
+                                        <i class="fas fa-user-circle"></i> Personal
+                                    </button>
+                                    <button class="filter-btn" data-filter="biography" data-type="category">
+                                        <i class="fas fa-user"></i> Biography
+                                    </button>
+                                    <button class="filter-btn" data-filter="technology" data-type="category">
+                                        <i class="fas fa-laptop-code"></i> Technology
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Currently Reading -->
+                        <div class="reading-section mb-5">
+                            <h2 class="section-title">
+                                <i class="fas fa-book-open"></i>
+                                Currently Reading
+                            </h2>
+                            <div class="row">
+                                {{ range .Site.Data.books.currently_reading }}
+
+                                {{ $book := index $.Site.Data.book_metadata.books .book_id }}
+                                {{ if $book }}
+                                <div class="col-md-4 mb-4">
+                                    <div class="book-card">
+                                        <div class="book-cover">
+                                            <img src="{{ $book.cover }}" alt="{{ $book.title }}">
+                                        </div>
+                                        <div class="book-info">
+                                            <h4>{{ $book.title }}</h4>
+                                            <p class="author">{{ $book.author }}</p>
+                                            <p class="description">{{ $book.description }}</p>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: {{ .progress }}%"></div>
+                                            </div>
+                                            <span class="progress-text">{{ .progress }}% complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <!-- Books Read -->
+                        <div class="reading-section mb-5">
+                            <h2 class="section-title">
+                                <i class="fas fa-check-circle"></i>
+                                Books Read
+                            </h2>
+                            <!-- Debug: {{ .Site.Data.books.books_read }} -->
+                            <div class="row">
+                                {{ range .Site.Data.books.books_read }}
+                                {{ $book := index $.Site.Data.book_metadata.books . }}
+                                {{ if $book }}
+                                <div class="col-md-4 mb-4 book-item" data-year="{{ $book.year }}" data-category="{{ $book.category }}">
+                                    <div class="book-card">
+                                        <div class="book-cover">
+                                            <img src="{{ $book.cover }}" alt="{{ $book.title }}">
+                                        </div>
+                                        <div class="book-info">
+                                            <h4>{{ $book.title }}</h4>
+                                            <p class="author">{{ $book.author }}</p>
+                                            <p class="description">{{ $book.description }}</p>
+                                            {{ if $book.tags }}
+                                            <div class="book-tags">
+                                                {{ range $book.tags }}
+                                                <span class="tag">{{ . }}</span>
+                                                {{ end }}
+                                            </div>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <!-- Want to Read -->
+                        <div class="reading-section mb-5">
+                            <h2 class="section-title">
+                                <i class="fas fa-bookmark"></i>
+                                Want to Read
+                            </h2>
+                            <div class="row">
+                                {{ range .Site.Data.books.want_to_read }}
+                                {{ $book := index $.Site.Data.book_metadata.books . }}
+                                {{ if $book }}
+                                <div class="col-md-4 mb-4">
+                                    <div class="book-card">
+                                        <div class="book-cover">
+                                            <img src="{{ $book.cover }}" alt="{{ $book.title }}">
+                                        </div>
+                                        <div class="book-info">
+                                            <h4>{{ $book.title }}</h4>
+                                            <p class="author">{{ $book.author }}</p>
+                                            <p class="description">{{ $book.description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <!-- 2024 Reads -->
+                        <div class="reading-section mb-5">
+                            <h2 class="section-title">
+                                <i class="fas fa-calendar-alt"></i>
+                                2024 Reads
+                            </h2>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="text-center text-muted">Books completed this year will appear here...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Podcasts Section -->
+                    <div class="tab-pane fade" id="podcasts-section">
+                        <div class="reading-section mb-5">
+                    <h2 class="section-title">
+                        <i class="fas fa-podcast"></i>
+                        Favorite Podcasts
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="podcast-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <div>
+                                    <h5>The Tim Ferriss Show</h5>
+                                    <p>Interviews with world-class performers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="podcast-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <div>
+                                    <h5>Lex Fridman Podcast</h5>
+                                    <p>Deep conversations about AI, science, and life</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="podcast-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <div>
+                                    <h5>Data Engineering Podcast</h5>
+                                    <p>Technical deep dives into data systems</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="podcast-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <div>
+                                    <h5>The Analytics Engineering Podcast</h5>
+                                    <p>Modern data stack and analytics practices</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="podcast-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <div>
+                                    <h5>Huberman Lab</h5>
+                                    <p>Science-based tools for everyday life</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="podcast-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <div>
+                                    <h5>The Knowledge Project</h5>
+                                    <p>Decision making and mental models</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+
+                    <!-- Blogs Section -->
+                    <div class="tab-pane fade" id="blogs-section">
+                        <div class="reading-section mb-5">
+                    <h2 class="section-title">
+                        <i class="fas fa-rss"></i>
+                        Must-Read Blogs
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>Wait But Why</h5>
+                                    <p>Long-form posts about everything</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>Paul Graham's Essays</h5>
+                                    <p>Insights on startups and technology</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>dbt Labs Blog</h5>
+                                    <p>Analytics engineering best practices</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>Locally Optimistic</h5>
+                                    <p>Data team management and strategy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>High Scalability</h5>
+                                    <p>System design and architecture</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>Martin Fowler</h5>
+                                    <p>Software development and architecture</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>Farnam Street</h5>
+                                    <p>Mental models and decision making</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="blog-item">
+                                <i class="fas fa-external-link-alt"></i>
+                                <div>
+                                    <h5>Netflix Tech Blog</h5>
+                                    <p>Engineering at scale insights</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let activeYearFilter = 'all';
+    let activeCategoryFilter = 'all';
+    
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const bookItems = document.querySelectorAll('.book-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filterType = this.dataset.type;
+            const filterValue = this.dataset.filter;
+            
+            // Update active filter
+            if (filterType === 'year') {
+                activeYearFilter = filterValue;
+                document.querySelectorAll('[data-type="year"]').forEach(b => b.classList.remove('active'));
+            } else {
+                activeCategoryFilter = filterValue;
+                document.querySelectorAll('[data-type="category"]').forEach(b => b.classList.remove('active'));
+            }
+            
+            this.classList.add('active');
+            applyFilters();
+        });
+    });
+    
+    function applyFilters() {
+        bookItems.forEach(item => {
+            const itemYear = item.dataset.year;
+            const itemCategory = item.dataset.category;
+            
+            const yearMatch = activeYearFilter === 'all' || itemYear === activeYearFilter;
+            const categoryMatch = activeCategoryFilter === 'all' || itemCategory === activeCategoryFilter;
+            
+            if (yearMatch && categoryMatch) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+});
+</script>
+{{ end }}

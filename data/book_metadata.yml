@@ -1,0 +1,154 @@
+# Book metadata extracted from Goodreads URLs
+books:
+  "18077875":
+    title: "The Power of Habit"
+    author: "Charles Duhigg"
+    description: "Explores the science behind habit formation and how we can harness this knowledge to transform our lives."
+    cover: "https://via.placeholder.com/300x450/007bff/ffffff?text=The+Power+of+Habit"
+    category: "personal"
+    year: 2024
+    tags: ["habits", "psychology", "productivity"]
+  
+  "52611593":
+    title: "Around the Corner to Around the World"
+    author: "Robert Rosenberg"
+    description: "The story of how Dunkin' Donuts became a global brand through franchising and business innovation."
+    cover: "https://m.media-amazon.com/images/I/71qKQ+kdEQL.jpg"
+    category: "business"
+    year: 2024
+    tags: ["business", "franchising", "entrepreneurship"]
+  
+  "34912847":
+    title: "Raag Darbari"
+    author: "Shrilal Shukla"
+    description: "A satirical novel about rural Indian politics and bureaucracy, winner of the Sahitya Akademi Award."
+    cover: "https://m.media-amazon.com/images/I/81VSKQB4GPL.jpg"
+    category: "biography"
+    year: 2024
+    tags: ["indian-literature", "politics", "satire"]
+  
+  "24945404":
+    title: "The Obesity Code"
+    author: "Jason Fung"
+    description: "Unlocking the secrets of weight loss through understanding insulin and hormonal factors."
+    cover: "https://m.media-amazon.com/images/I/71VgVV8OlUL.jpg"
+    category: "personal"
+    year: 2023
+    tags: ["health", "nutrition", "science"]
+  
+  "4030991":
+    title: "Shoe Dog"
+    author: "Phil Knight"
+    description: "The memoir of Nike's founder and the company's early days of struggle and triumph."
+    cover: "https://m.media-amazon.com/images/I/81JkKijZzjL.jpg"
+    category: "business"
+    year: 2023
+    tags: ["memoir", "business", "entrepreneurship"]
+  
+  "28815":
+    title: "Influence"
+    author: "Robert B. Cialdini"
+    description: "The psychology of persuasion and the six principles that drive human decision-making."
+    cover: "https://m.media-amazon.com/images/I/512-B2hXOeL.jpg"
+    category: "personal"
+    year: 2023
+    tags: ["psychology", "persuasion", "decision-making"]
+  
+  "19501":
+    title: "Eat, Pray, Love"
+    author: "Elizabeth Gilbert"
+    description: "A journey of self-discovery through Italy, India, and Indonesia after a difficult divorce."
+    cover: "https://m.media-amazon.com/images/I/81WjJBqBzKL.jpg"
+    category: "biography"
+    year: 2022
+    tags: ["memoir", "travel", "self-discovery"]
+  
+  "59641216":
+    title: "Friends, Lovers, and the Big Terrible Thing"
+    author: "Matthew Perry"
+    description: "The candid memoir of the Friends star's battle with addiction and his journey to recovery."
+    cover: "https://m.media-amazon.com/images/I/81YOuOGFCJL.jpg"
+    category: "biography"
+    year: 2023
+    tags: ["memoir", "addiction", "recovery"]
+  
+  "34890015":
+    title: "Factfulness"
+    author: "Hans Rosling"
+    description: "Ten reasons we're wrong about the world and why things are better than you think."
+    cover: "https://m.media-amazon.com/images/I/71BYntqUApL.jpg"
+    category: "personal"
+    year: 2022
+    tags: ["data", "statistics", "world-view"]
+  
+  "1713426":
+    title: "Predictably Irrational"
+    author: "Dan Ariely"
+    description: "The hidden forces that shape our decisions and how we can make better choices."
+    cover: "https://m.media-amazon.com/images/I/61mWgC7tNuL.jpg"
+    category: "personal"
+    year: 2022
+    tags: ["psychology", "behavioral-economics", "decision-making"]
+  
+  "25744928":
+    title: "Deep Work"
+    author: "Cal Newport"
+    description: "Rules for focused success in a distracted world and how to cultivate deep concentration."
+    cover: "https://m.media-amazon.com/images/I/71QKQ9mwV7L.jpg"
+    category: "personal"
+    year: 2022
+    tags: ["productivity", "focus", "work"]
+  
+  "35141435":
+    title: "Salt Sugar Fat"
+    author: "Michael Moss"
+    description: "How the food giants hooked us on processed foods and their impact on public health."
+    cover: "https://m.media-amazon.com/images/I/81WTAiArH0L.jpg"
+    category: "personal"
+    year: 2021
+    tags: ["health", "nutrition", "food-industry"]
+  
+  "7155145":
+    title: "Linchpin"
+    author: "Seth Godin"
+    description: "Are you indispensable? How to become the person your organization can't live without."
+    cover: "https://m.media-amazon.com/images/I/51szD43g4eL.jpg"
+    category: "business"
+    year: 2021
+    tags: ["career", "leadership", "personal-branding"]
+  
+  "38728977":
+    title: "The Molecule of More"
+    author: "Daniel Z. Lieberman"
+    description: "How dopamine drives human behavior, from desire and addiction to creativity and love."
+    cover: "https://m.media-amazon.com/images/I/71f4+YOTOL.jpg"
+    category: "personal"
+    year: 2021
+    tags: ["neuroscience", "psychology", "dopamine"]
+  
+  "12262741":
+    title: "Wild"
+    author: "Cheryl Strayed"
+    description: "A powerful memoir about hiking the Pacific Crest Trail and finding oneself through adventure."
+    cover: "https://m.media-amazon.com/images/I/81QBueDa2eL.jpg"
+    category: "biography"
+    year: 2021
+    tags: ["memoir", "adventure", "hiking"]
+  
+  "11084145":
+    title: "Steve Jobs"
+    author: "Walter Isaacson"
+    description: "The definitive biography of Apple's co-founder, based on exclusive interviews."
+    cover: "https://m.media-amazon.com/images/I/81VStYnDGrL.jpg"
+    category: "biography"
+    year: 2020
+    tags: ["biography", "technology", "innovation"]
+  
+  "31170723":
+    title: "Behave"
+    author: "Robert M. Sapolsky"
+    description: "The biology of humans at our best and worst - exploring the science behind human behavior."
+    cover: "https://m.media-amazon.com/images/I/81FYsCk5LjL.jpg"
+    category: "personal"
+    year: 2025
+    tags: ["neuroscience", "psychology", "human-behavior"]

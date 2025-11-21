@@ -1,0 +1,94 @@
+/* Enhanced Navigation Styles */
+
+/* Add dots between nav items except before theme toggle */
+.navbar-nav .nav-item:not(:last-child):not(:nth-last-child(2)) {
+    position: relative;
+}
+
+.navbar-nav .nav-item:not(:last-child):not(:nth-last-child(2))::after {
+    content: "•";
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Enhanced nav link styling */
+.navbar-nav .nav-link {
+    position: relative;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem !important;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+/* Add dot before About Me */
+.navbar-nav .nav-link[href*="about"]::before {
+    content: '• ';
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    transform: none;
+    margin-right: 0.3rem;
+}
+
+.navbar-nav .nav-link[href*="about"] {
+    margin-left: 1rem;
+}
+
+/* Hover effect with underline animation for other links */
+.navbar-nav .nav-link:not([href*="about"])::before {
+    content: '';
+    position: absolute;
+    bottom: 0.3rem;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:not([href*="about"]):hover::before {
+    width: 80%;
+}
+
+/* Active page styling - only on books page */
+body[data-page="books"] .navbar-nav .nav-link[href*="books"] {
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--primary-color) !important;
+}
+
+/* Home page - highlight current section on scroll */
+body:not([data-page="books"]) .navbar-nav .nav-link.active {
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--primary-color) !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 991px) {
+    .navbar-nav .nav-item::after {
+        display: none;
+    }
+    
+    .navbar-nav .nav-item {
+        border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+        margin-bottom: 0.5rem;
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+}

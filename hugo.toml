@@ -11,10 +11,10 @@ page = ["HTML", "RSS"]
 unsafe = true
 
 [[Menus.main]]
-identifier = "blog"
-name = "Blog"
-title = "Blog posts"
-url = "/blogs"
+identifier = "books"
+name = "Learnings"
+title = "Books, Podcasts & Blogs"
+url = "/books"
 weight = 1
 
 [params]

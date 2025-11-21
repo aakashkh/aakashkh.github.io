@@ -1,0 +1,349 @@
+/* Books Page Styles */
+
+#books {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding-top: 2rem;
+}
+
+#books h1 {
+    color: var(--text-secondary-color);
+    font-weight: 600;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+#books h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.reading-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    color: var(--text-secondary-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.section-title i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.book-card {
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0px 8px 56px rgb(15 80 100 / 16%);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgb(15 80 100 / 25%);
+}
+
+.book-cover {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.book-cover img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.book-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-info h4 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.book-info .author {
+    color: var(--text-secondary-color);
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.book-info .description {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.progress-bar {
+    background-color: var(--background-color);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    background: linear-gradient(90deg, var(--primary-color), #4CAF50);
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary-color);
+    text-align: center;
+    display: block;
+}
+
+.podcast-item, .blog-item {
+    background-color: var(--secondary-color);
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0px 4px 20px rgb(15 80 100 / 12%);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.podcast-item:hover, .blog-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 25px rgb(15 80 100 / 18%);
+}
+
+.podcast-item i, .blog-item i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+
+.podcast-item h5, .blog-item h5 {
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.podcast-item p, .blog-item p {
+    color: var(--text-secondary-color);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Navigation Tabs */
+.nav-tabs-container {
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.nav-tabs {
+    border: none;
+}
+
+.nav-tabs .nav-link {
+    background: none;
+    border: none;
+    color: var(--text-secondary-color);
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--primary-color);
+    border: none;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.nav-tabs .nav-link i {
+    margin-right: 0.5rem;
+}
+
+/* Book Categories */
+.book-categories {
+    margin-bottom: 3rem;
+}
+
+.category-card {
+    background-color: var(--secondary-color);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 20px rgb(15 80 100 / 12%);
+    height: 100%;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 30px rgb(15 80 100 / 20%);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.category-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.category-card:hover i {
+    color: white;
+}
+
+.category-card h5 {
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+.category-card:hover h5 {
+    color: white;
+}
+
+/* Tab Content */
+.tab-content {
+    min-height: 500px;
+}
+
+/* Filter Controls */
+.filter-controls {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-title {
+    color: var(--text-secondary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.filter-btn {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid transparent;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.filter-btn i {
+    font-size: 0.9rem;
+}
+
+/* Book Tags */
+.book-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Filter Animation */
+.book-item {
+    transition: all 0.3s ease;
+}
+
+.book-item.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-cover img {
+        width: 100px;
+        height: 150px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .book-info h4 {
+        font-size: 1.1rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .category-card {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .category-card i {
+        font-size: 2rem;
+    }
+}
